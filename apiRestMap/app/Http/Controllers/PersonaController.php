@@ -11,4 +11,9 @@ class PersonaController extends Controller
         $personas=Persona::all();
         return response()->json($personas);
     }
+
+    public function getPersona($nombre){
+     $persona=Persona::wherenombre($nombre)->first();   
+    return response()->json([$persona]);
+    }
 }
