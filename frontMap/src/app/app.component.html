@@ -1,14 +1,19 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<mgl-map [style]="'mapbox://styles/mapbox/streets-v9'" [zoom]="[9]" [center]="[-75.567,  6.217]">
-
-    <mgl-popup *ngFor="let item of data" [lngLat]="[item.longitud,  item.latitud]" [closeOnClick]="false">
-        <mgl-marker [lngLat]="[item.longitud, item.latitud]">
-            <div class="marker">
-                {{item.nombre}}
-            </div>
-        </mgl-marker>
-        <h4>{{ item.nombre }}</h4>
-    </mgl-popup>
-</mgl-map>
-
-<input type="text" type="text" (keyup)="getPersona(name.value)" #name>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">Mapa</a>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input type="text" type="text" class="form-control mr-sm-2" placeholder="Cosultar persona" (keyup)="getPersona(name.value)" #name>
+    </form>
+</nav>
+<div class="container">
+    <mgl-map [style]="'mapbox://styles/mapbox/streets-v9'" [zoom]="[9]" [center]="[-75.567,  6.217]">
+        <mgl-popup *ngFor="let item of data" [lngLat]="[item.longitud,  item.latitud]" [closeOnClick]="false">
+            <mgl-marker [lngLat]="[item.longitud, item.latitud]">
+                <div class="marker">
+                    {{item.nombre}}
+                </div>
+            </mgl-marker>
+            <h4>{{ item.nombre }}</h4>
+        </mgl-popup>
+    </mgl-map>
+</div>
